@@ -25,9 +25,8 @@ import {
   Activity,
   CheckCircle2,
 } from "lucide-react";
-import { portfolioData, type Project, type Writing } from "@/data/portfolio";
-import { CommandMenu } from "@/components/CommandMenu";
-
+import { portfolioData, type Project, type Writing } from "../data/portfolio";
+import { CommandMenu } from "../components/CommandMenu";
 export default function Home() {
   const [platformFilter, setPlatformFilter] = React.useState<string>("All");
   const [writingFilter, setWritingFilter] = React.useState<string>("All");

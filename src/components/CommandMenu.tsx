@@ -13,7 +13,7 @@ import {
   Check,
   Copy,
 } from "lucide-react";
-import { portfolioData } from "@/data/portfolio";
+import { portfolioData } from "../data/portfolio";
 
 export function CommandMenu({
   open,

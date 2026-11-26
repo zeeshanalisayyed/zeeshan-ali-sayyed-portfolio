@@ -14,7 +14,7 @@ import {
   Sparkles,
   ExternalLink,
 } from "lucide-react";
-import { PORTFOLIO_DATA } from "../data/portfolio";
+import { portfolioData } from "../data/portfolio";
 import { CommandMenu } from "../components/CommandMenu";
 
 export default function PortfolioPage() {
@@ -22,15 +22,15 @@ export default function PortfolioPage() {
   const [writingFilter, setWritingFilter] = React.useState<string>("all");
 
   const copyEmail = () => {
-    navigator.clipboard.writeText(PORTFOLIO_DATA.email);
+    navigator.clipboard.writeText(portfolioData.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   const filteredWritings =
     writingFilter === "all"
-      ? PORTFOLIO_DATA.writings
-      : PORTFOLIO_DATA.writings.filter((w) => w.category === writingFilter);
+      ? portfolioData.writings
+      : portfolioData.writings.filter((w) => w.category === writingFilter);
 
   return (
     <div className="min-h-screen bg-[#09090b] text-neutral-200 antialiased relative">
@@ -41,17 +41,17 @@ export default function PortfolioPage() {
         {/* NAV HEADER */}
         <header className="flex items-center justify-between border-b border-neutral-900 pb-6">
           <div className="flex items-center gap-3">
-            <span className="font-mono text-xs text-neutral-400">/{PORTFOLIO_DATA.handle}</span>
+            <span className="font-mono text-xs text-neutral-400">/{portfolioData.handle}</span>
             <span className="h-3 w-px bg-neutral-800" />
             <div className="flex items-center gap-1.5 text-xs text-emerald-400">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-neutral-400">{PORTFOLIO_DATA.status}</span>
+              <span className="text-neutral-400">{portfolioData.status}</span>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <CommandMenu />
             <a
-              href={PORTFOLIO_DATA.socials.resume}
+              href={portfolioData.socials.resume}
               target="_blank"
               rel="noreferrer"
               className="hidden sm:inline-flex items-center gap-1.5 text-xs px-3 py-1.5 bg-neutral-100 hover:bg-white text-neutral-950 font-medium rounded-lg transition-colors"
@@ -66,15 +66,15 @@ export default function PortfolioPage() {
         <section className="space-y-6">
           <div className="space-y-2">
             <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
-              {PORTFOLIO_DATA.name}
+              {portfolioData.name}
             </h1>
             <p className="font-mono text-xs sm:text-sm text-neutral-400">
-              {PORTFOLIO_DATA.title} · {PORTFOLIO_DATA.location}
+              {portfolioData.title} · {portfolioData.location}
             </p>
           </div>
 
           <p className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-2xl">
-            {PORTFOLIO_DATA.bio}
+            {portfolioData.bio} 
           </p>
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
@@ -83,10 +83,10 @@ export default function PortfolioPage() {
               className="flex items-center gap-2 px-3 py-1.5 text-xs bg-neutral-900 border border-neutral-800 hover:border-neutral-700 text-neutral-300 rounded-lg transition-colors"
             >
               {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-              <span>{copied ? "Copied to clipboard" : PORTFOLIO_DATA.email}</span>
+              <span>{copied ? "Copied to clipboard" : portfolioData.email}</span>
             </button>
             <a
-              href={PORTFOLIO_DATA.socials.github}
+              href={portfolioData.socials.github}
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-1.5 px-3 py-1.5 text-xs bg-neutral-900 border border-neutral-800 hover:border-neutral-700 text-neutral-300 rounded-lg transition-colors"
@@ -95,7 +95,7 @@ export default function PortfolioPage() {
               <span>GitHub</span>
             </a>
             <a
-              href={PORTFOLIO_DATA.socials.linkedin}
+              href={portfolioData.socials.linkedin}
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-1.5 px-3 py-1.5 text-xs bg-neutral-900 border border-neutral-800 hover:border-neutral-700 text-neutral-300 rounded-lg transition-colors"
@@ -114,7 +114,7 @@ export default function PortfolioPage() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {PORTFOLIO_DATA.metrics.map((m, idx) => (
+            {portfolioData.metrics.map((m, idx) => (
               <div
                 key={idx}
                 className="p-4 rounded-xl bg-neutral-900/60 border border-neutral-800/80 hover:border-neutral-700 transition-colors space-y-1.5"
@@ -137,7 +137,7 @@ export default function PortfolioPage() {
           </div>
 
           <div className="space-y-8">
-            {PORTFOLIO_DATA.experience.map((job, idx) => (
+            {portfolioData.experience.map((job, idx) => (
               <div
                 key={idx}
                 className="group p-5 rounded-2xl bg-neutral-900/30 border border-neutral-900 hover:border-neutral-800 transition-all space-y-3"
@@ -187,7 +187,7 @@ export default function PortfolioPage() {
           </div>
 
           <div className="grid gap-4">
-            {PORTFOLIO_DATA.projects.map((p, idx) => (
+            {portfolioData.projects.map((p, idx) => (
               <div
                 key={idx}
                 className="p-5 rounded-2xl bg-neutral-900/30 border border-neutral-900 hover:border-neutral-800 transition-all space-y-3"
@@ -319,7 +319,7 @@ export default function PortfolioPage() {
           </div>
 
           <div className="flex items-center justify-between text-xs text-neutral-500 pt-6">
-            <span>© {new Date().getFullYear()} {PORTFOLIO_DATA.name}</span>
+            <span>© {new Date().getFullYear()} {portfolioData.name}</span>
             <span className="font-mono text-[11px]">Next.js · Tailwind · Vercel</span>
           </div>
         </footer>

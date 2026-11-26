@@ -14,8 +14,8 @@ import {
   Sparkles,
   ExternalLink,
 } from "lucide-react";
-import { PORTFOLIO_DATA } from "@/data/portfolio";
-import { CommandMenu } from "@/components/CommandMenu";
+import { PORTFOLIO_DATA } from "../data/portfolio";
+import { CommandMenu } from "../components/CommandMenu";
 
 export default function PortfolioPage() {
   const [copied, setCopied] = React.useState(false);

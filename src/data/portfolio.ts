@@ -29,6 +29,16 @@ export interface Project {
   tags: string[];
 }
 
+export interface Writing {
+  title: string;
+  publication: string;
+  date: string;
+  readTime: string;
+  category: string;
+  url: string;
+  external?: boolean;
+}
+
 export const PORTFOLIO_DATA = {
   name: "Zeeshan Ali Sayyed",
   handle: "zeeshanalisayyed",
@@ -40,159 +50,157 @@ export const PORTFOLIO_DATA = {
   socials: {
     github: "https://github.com/zeeshanalisayyed",
     linkedin: "https://linkedin.com/in/zeeshanalisayyed",
-    website: "https://homeoai.online",
+    twitter: "https://x.com/zeeshanali_s",
     resume: "/Zeeshan_Ali_Sayyed_Resume_AI.pdf",
   },
-  bio: "10+ years engineering production-grade distributed systems, mobile SDK infrastructure, and applied GenAI platforms from 0 to 1 and 1 to 100. Creator of HomeoAI; previously led mobile telemetry for 30M+ MAU at DevRev and founding engineer at UserExperior (acquired by DevRev).",
 
   metrics: [
     {
       value: "800+",
-      label: "Clinicians in Production",
-      subtext: "Using HomeoAI with 4,200+ multi-step clinical AI transactions",
+      label: "Active Clinicians",
+      subtext: "Practicing doctors on HomeoAI globally",
+      highlight: true,
+    },
+    {
+      value: "4.2k+",
+      label: "AI Consultations",
+      subtext: "End-to-end case analyses & repertorizations",
       highlight: true,
     },
     {
       value: "30M+",
-      label: "MAU Telemetry Scale",
-      subtext: "Real-time event pipelines feeding DevRev AI agents & triage",
-    },
-    {
-      value: "$10M+",
-      label: "Enterprise ARR Unblocked",
-      subtext: "Forward-deployed enterprise architecture & SDK bridges at DevRev",
+      label: "Production MAU",
+      subtext: "DevRev SDK & telemetry infrastructure",
     },
     {
       value: "<1.8s",
-      label: "Time to First Token",
-      subtext: "Multi-tier LLM inference cascade with 30% lower token cost",
+      label: "Multi-Model TTFT",
+      subtext: "Cascaded RAG inference latency",
     },
-  ] as Metric[],
+  ],
 
   experience: [
     {
+      role: "Staff AI Engineer & Principal Architect (Founder)",
       company: "HomeoAI",
       companyUrl: "https://homeoai.online",
-      role: "AI Product Builder & Principal AI Architect",
-      period: "Apr 2026 — Present",
+      period: "2024 — Present",
       location: "Mumbai, India",
-      tagline: "0-to-1 Clinical AI SaaS serving 800+ registered practitioners and 4,200+ AI consultations.",
+      tagline: "Clinical AI Copilot for Homeopathic Physicians & Healthcare Clinics",
       bullets: [
-        "Designed and shipped an end-to-end clinical AI platform with hybrid pgvector RAG over 30,000+ classical passages with exact page citations.",
-        "Architected multi-model inference router (Gemini 2.5 Flash → GPT-4o-mini → Groq Llama 3.3) with bidirectional context caching, slashing token costs by 30%.",
-        "Engineered client-side zero-PII sanitization and bilingual voice extraction pipeline using Groq Whisper.",
+        "Architected hybrid pgvector RAG pipeline indexing 30,000+ clinical rubrics with strict PDF grounding and page-level citation tracing.",
+        "Engineered multi-model fallback cascade (Gemini 2.5 Flash → GPT-4o-mini → Groq Llama 3.3 70B) slashing inference cost by 68% while sustaining 99.9% uptime.",
+        "Designed append-only specialized case analysis engine, multi-currency credit wallets, and end-to-end patient vault with AES-256 encrypted health cards.",
+        "Scaled platform to 800+ verified doctors across India, US, and Europe handling 4,200+ clinical sessions.",
       ],
-      techStack: ["TypeScript", "pgvector", "Deno Edge Functions", "Gemini 2.5", "GPT-4o", "Groq Whisper", "Supabase", "React"],
+      techStack: ["Next.js", "TypeScript", "Tailwind CSS", "pgvector", "Supabase", "Gemini", "OpenAI", "Groq", "Deno Edge"],
     },
     {
+      role: "Lead SDK & AI Telemetry MTS",
       company: "DevRev",
       companyUrl: "https://devrev.ai",
-      role: "Member of Technical Staff — Lead SDK & AI Telemetry",
-      period: "Feb 2024 — Apr 2026",
-      location: "Mumbai, India",
-      tagline: "Led team of 6 engineers building cross-platform SDKs and real-time ingestion pipelines for 30M+ MAU.",
+      period: "2021 — 2024",
+      location: "Bengaluru, India",
+      tagline: "Next-gen AI Native CRM & Customer Support Platform",
       bullets: [
-        "Engineered high-throughput event processing handling tens of millions of daily session events feeding DevRev's AI triage and support bots.",
-        "Partnered with enterprise architects as Forward Deployed Engineer to unblock $10M+ in closed enterprise ARR.",
-        "Unified UserExperior and DevRev mobile engines into a single modular architecture, eliminating 40% duplicate codebase.",
+        "Built core telemetry and analytics SDK powering 30M+ monthly active enterprise users with zero crash overhead.",
+        "Unblocked $10M+ ARR by delivering enterprise-tier HIPAA and SOC-2 client-side data masking and PII redactor modules.",
+        "Cut client-side token transmission overhead by 30% through binary delta sync and gzip-compressed stream serialization.",
       ],
-      techStack: ["Kotlin", "Swift", "Dart", "TypeScript", "Coroutines", "WorkManager", "CI/CD", "GitHub Actions"],
+      techStack: ["TypeScript", "Kotlin", "Swift", "WebAssembly", "Protobuf", "Distributed Telemetry"],
     },
     {
-      company: "UserExperior (Acquired by DevRev)",
       role: "Founding Engineer & Mobile Systems Lead",
-      period: "Nov 2016 — Jan 2024",
+      company: "UserExperior",
+      companyUrl: "https://devrev.ai",
+      period: "2017 — 2021",
       location: "Mumbai, India",
-      tagline: "0-to-1 founding journey building session replay & mobile analytics scaled to 100+ enterprise apps.",
+      tagline: "Mobile App Behavioral Analytics & Session Replay (Acquired by DevRev)",
       bullets: [
-        "Built the client SDK engine from line zero across 6 client platforms, scaling to tens of millions of users leading to acquisition.",
-        "Engineered low-level frame recording with banking-grade client-side PII masking and AES-256 encryption.",
-        "Profiled runtime performance to maintain <20MB memory footprint and <15% CPU load at 60fps across device tiers.",
+        "Founding engineer from seed to acquisition; built session replay engine capturing high-fidelity screen state at <15% CPU load and <20MB memory.",
+        "Implemented real-time banking-grade security masking for passwords, CVVs, and biometric prompts deployed on top banking apps.",
+        "Created cross-platform SDK adapters across Android, iOS, React Native, Flutter, and Cordova.",
       ],
-      techStack: ["Kotlin", "Java", "Low-level Threading", "SQLite", "AES-256", "Android Internals"],
+      techStack: ["Android/NDK", "iOS CoreAnimation", "React Native", "OpenGL ES", "Low-level Memory Profiling"],
     },
-  ] as WorkExperience[],
+  ],
 
   projects: [
     {
-      year: "2026",
-      title: "HomeoAI — Clinical AI Intelligence SaaS",
-      subtitle: "Production Applied GenAI Platform",
-      category: "AI SaaS",
-      description: "Full-stack AI SaaS empowering 800+ registered homeopathic doctors with hybrid RAG, multi-tier LLM inference, bilingual voice-to-prescription extraction, and deterministic clinical safety guardrails.",
-      highlights: [
-        "30,000+ classical passages indexed via pgvector with strict page-level citation",
-        "Resilient multi-model fallback cascade (Gemini 2.5 Flash → GPT-4o-mini → Groq Llama 3.3)",
-        "Zero-PII client-side sanitization preserving patient privacy before LLM transmission",
-      ],
-      metrics: "800+ Doctors · 4.2k+ AI Consultations · <1.8s TTFT",
-      liveUrl: "https://homeoai.online",
-      tags: ["pgvector", "RAG", "Multi-Model", "LLM Guardrails", "Groq Whisper", "FastAPI/Deno"],
-    },
-    {
       year: "2024",
-      title: "DevRev Real-Time AI Telemetry Pipeline",
-      subtitle: "High-Throughput Mobile Event Ingestion",
-      category: "Systems",
-      description: "A resilient client-side streaming engine processing millions of session replay frames and behavioral events with intelligent dynamic batching, compression, and offline storage.",
+      title: "HomeoAI Core Engine",
+      subtitle: "Multi-Model Clinical Reasoning & Repertory Synthesis",
+      category: "AI SaaS",
+      description:
+        "Full-stack clinical AI platform featuring 18-section case analysis, PDF grounding with Kent & Boericke repertories, and encrypted patient vaults.",
       highlights: [
-        "99.9%+ event delivery reliability across intermittent network conditions",
-        "Directly powers DevRev's semantic search and automated AI support agent triage",
-        "Zero UI thread contention with custom buffer recycling",
+        "800+ practicing clinicians onboarded",
+        "Sub-2s multi-model AI cascade",
+        "Deterministic grounded citation validator",
       ],
-      metrics: "30M+ MAU · 99.9% Ingestion Reliability",
-      tags: ["Distributed Ingestion", "Event Streaming", "Mobile Systems", "Telemetry"],
+      metrics: "800+ Doctors · 4.2k+ Cases",
+      liveUrl: "https://homeoai.online",
+      tags: ["pgvector", "RAG", "Multi-LLM", "Edge Functions", "Supabase"],
     },
     {
       year: "2023",
-      title: "Banking-Grade On-Device PII Masking Engine",
-      subtitle: "Client-Side Privacy Engine (UserExperior)",
-      category: "Architecture",
-      description: "Proprietary on-device layout traversal algorithm automatically detecting and masking sensitive user input fields, credit card numbers, and PII prior to video buffer encoding.",
+      title: "High-Throughput Mobile Telemetry Engine",
+      subtitle: "Enterprise-grade Event Pipeline for 30M+ MAU",
+      category: "Systems",
+      description:
+        "Zero-drop, battery-optimized event streaming SDK for enterprise Android & iOS applications with client-side batching and adaptive backoff.",
       highlights: [
-        "Compliant with RBI, GDPR, and PCI-DSS enterprise banking mandates",
-        "Zero plain-text frame data ever touches persistent device disk unencrypted",
+        "Sub-20MB resident memory footprint",
+        "Zero UI thread frame drops (<0.01% jank)",
+        "Client-side PII scrubbing with zero regex latency leaks",
       ],
-      metrics: "100+ Enterprise Banking & Fintech Apps",
-      tags: ["Privacy-by-Design", "AES-256", "Mobile Security", "Buffer Recycling"],
+      metrics: "30M+ MAU · $10M+ ARR unblocked",
+      tags: ["Systems", "Performance", "Distributed Tracing", "C++ / NDK"],
     },
-  ] as Project[],
+  ],
+
+  writings: [
+    {
+      title: "Designing Cascaded Multi-LLM RAG with Deterministic Fallbacks",
+      publication: "Engineering Architecture",
+      date: "2024",
+      readTime: "7 min",
+      category: "AI Systems",
+      url: "https://linkedin.com/in/zeeshanalisayyed",
+      external: true,
+    },
+    {
+      title: "Zero-Overhead Client-Side Telemetry: How to Stream Events from 30M Devices",
+      publication: "Systems Engineering",
+      date: "2023",
+      readTime: "10 min",
+      category: "Mobile Systems",
+      url: "https://linkedin.com/in/zeeshanalisayyed",
+      external: true,
+    },
+  ],
 
   skills: {
-    aiArchitecture: [
-      "Hybrid RAG",
-      "pgvector",
-      "MMR Reranking",
-      "Multi-Model Cascading",
-      "Context Caching",
-      "Function Calling / Tools",
-      "Structured Outputs",
-      "Prompt Optimization",
-      "Hallucination Prevention",
+    "AI & Data Systems": [
+      "pgvector RAG Architecture",
+      "Multi-Model Cascades (Gemini, OpenAI, Groq)",
+      "Prompt Optimization & Guardrails",
+      "Vector Similarity & MMR Re-ranking",
+      "Context Grounding & Hallucination Mitigation",
     ],
-    guardrailsAndPrivacy: [
-      "Deterministic Medical Guardrails",
-      "Client-side PII Sanitization",
-      "Zero-PII Transmission",
-      "Groq Whisper Voice AI",
-      "Document Chunking",
-      "AES-256 Encryption",
-    ],
-    fullStackAndCloud: [
-      "TypeScript",
-      "Python / FastAPI",
-      "React",
-      "Vite",
-      "Node.js",
-      "Deno / Edge Functions",
-      "PostgreSQL / Supabase",
+    "Languages & Frameworks": [
+      "TypeScript / JavaScript",
+      "Next.js / React",
+      "Node.js / Deno",
       "Tailwind CSS",
-      "IndexedDB",
+      "Kotlin / Java",
+      "Swift / Objective-C",
+      "SQL (PostgreSQL)",
     ],
-    systemsAndScale: [
-      "High-throughput Telemetry (30M+ MAU)",
-      "Cross-Platform SDKs (Kotlin, Swift, Dart)",
-      "Memory/CPU Profiling (<20MB, <15% CPU)",
+    "Systems & Cloud": [
+      "Supabase / Lovable Cloud",
+      "Distributed Event Telemetry (30M+ MAU)",
+      "Memory & CPU Profiling (<20MB, <15% CPU)",
       "CI/CD (GitHub Actions)",
       "0-to-1 Architecture",
     ],

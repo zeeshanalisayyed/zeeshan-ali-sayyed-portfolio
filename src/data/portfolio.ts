@@ -304,10 +304,17 @@ export interface PortfolioData {
     email: string;
     phone: string;
     availability: string;
-    links: {
-      github: string;
-      linkedin: string;
-      website: string;
+    links?: {
+      github?: string;
+      linkedin?: string;
+      website?: string;
+      twitter?: string;
+    };
+    socials?: {
+      github?: string;
+      linkedin?: string;
+      website?: string;
+      twitter?: string;
     };
   };
   metrics: Metric[];
@@ -327,6 +334,14 @@ export interface PortfolioData {
   }[];
 }
 
+const profileLinks = {
+  github: "https://github.com/zeeshanalisayyed",
+  linkedin: "https://linkedin.com/in/zeeshanalisayyed",
+  resume: "/Zeeshan_Ali_Sayyed_Resume.pdf",
+  website: "https://zeeshanalisayyed.vercel.app",
+  email: "mailto:zeeshanali.sayyed1@gmail.com",
+};
+
 export const portfolioData: PortfolioData = {
   name: "Zeeshan Ali Sayyed",
   handle: "zeeshanalisayyed",
@@ -336,13 +351,8 @@ export const portfolioData: PortfolioData = {
   email: "zeeshanali.sayyed1@gmail.com",
   phone: "+91 7276488049",
   bio: "Founding Engineer & Platform Architect with 10+ years building low-latency cross-platform mobile SDKs (Android, iOS, Flutter, React Native, Cordova, Xamarin) scaled to 30M+ MAU, and creator of HomeoAI.",
-  socials: {
-    github: "https://github.com/zeeshanalisayyed",
-    linkedin: "https://linkedin.com/in/zeeshanalisayyed",
-    resume: "/Zeeshan_Ali_Sayyed_Resume.pdf",
-    website: "https://homeoai.online",
-    email: "mailto:zeeshanali.sayyed1@gmail.com",
-  },
+  links: profileLinks,
+  socials: profileLinks,
   personal: {
     name: "Zeeshan Ali Sayyed",
     headline: "Staff Mobile & SDK Engineer • AI Product Builder",

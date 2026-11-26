@@ -304,9 +304,9 @@ export interface PortfolioData {
     email: string;
     phone: string;
     availability: string;
-    links?: {
-      github?: string;
-      linkedin?: string;
+    links: {
+      github: string;
+      linkedin: string;
       website?: string;
       twitter?: string;
     };
@@ -363,11 +363,8 @@ export const portfolioData: PortfolioData = {
     email: "zeeshanali.sayyed1@gmail.com",
     phone: "+91 7276488049",
     availability: "Available for Consulting & Contract Engagements",
-    links: {
-      github: "https://github.com/zeeshanalisayyed",
-      linkedin: "https://linkedin.com/in/zeeshanalisayyed",
-      website: "https://homeoai.online",
-    },
+    links: profileLinks,
+    socials: profileLinks,
   },
   metrics,
   experience,

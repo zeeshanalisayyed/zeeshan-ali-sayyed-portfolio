@@ -1,31 +1,33 @@
-export interface WorkExperience {
-  role: string;
-  company: string;
-  companyUrl?: string;
-  period: string;
-  location: string;
-  tagline: string;
-  bullets: string[];
-  techStack: string[];
+export interface Metric {
+  label: string;
+  value: string;
+  description: string;
+  subtext: string;
 }
 
-export interface Metric {
-  value: string;
-  label: string;
-  subtext: string;
-  highlight?: boolean;
+export interface Experience {
+  period: string;
+  role: string;
+  company: string;
+  location: string;
+  description: string;
+  tagline: string;
+  achievements: string[];
+  bullets: string[];
+  tags: string[];
+  techStack: string[];
 }
 
 export interface Project {
   year: string;
   title: string;
   subtitle: string;
-  category: "AI SaaS" | "Architecture" | "Systems";
+  category: string;
   description: string;
   highlights: string[];
-  metrics?: string;
+  metrics: string;
   liveUrl?: string;
-  githubUrl?: string;
+  href: string;
   tags: string[];
 }
 
@@ -36,186 +38,219 @@ export interface Writing {
   readTime: string;
   category: string;
   url: string;
-  external?: boolean;
+  href: string;
+  description: string;
+  external: boolean;
 }
 
-export const PORTFOLIO_DATA = {
+export const portfolioData = {
   name: "Zeeshan Ali Sayyed",
-  handle: "zeeshanalisayyed",
-  title: "Staff AI Engineer • Applied AI & LLM Systems Architect • Founding Engineer",
-  status: "Principal AI Architect @ HomeoAI · Ex-DevRev",
-  location: "Mumbai, India",
-  email: "zeeshanali.sayyed1@gmail.com",
-  phone: "+91 7276488049",
+  handle: "@zeeshanalisayyed",
+  title: "Staff AI Engineer & Systems Architect",
+  status: "Building HomeoAI · Open to Advisory & High-Impact AI/Systems Roles",
+  location: "Bangalore, India · Remote",
+  email: "zeeshanalisayyed@gmail.com",
+  phone: "+91 91307 26615",
+  bio: "Staff AI Engineer and Systems Architect with 8+ years scaling systems from 0 to 30M+ MAU, founding clinical AI platforms, and architecting multi-model LLM cascades.",
+  summary:
+    "Staff AI Engineer and Systems Architect with 8+ years scaling systems from 0 to 30M+ MAU, founding clinical AI platforms, and architecting multi-model LLM cascades. Proven track record unblocking eight-figure enterprise deals, architecting zero-data-loss real-time telemetry pipelines, and founding HomeoAI (800+ clinicians, 4,200+ AI consultations).",
   socials: {
     github: "https://github.com/zeeshanalisayyed",
     linkedin: "https://linkedin.com/in/zeeshanalisayyed",
-    twitter: "https://x.com/zeeshanali_s",
-    resume: "/Zeeshan_Ali_Sayyed_Resume_AI.pdf",
+    twitter: "https://twitter.com/zeeshanalisayyed",
+    resume: "/resume.pdf",
   },
-
   metrics: [
     {
-      value: "800+",
-      label: "Active Clinicians",
-      subtext: "Practicing doctors on HomeoAI globally",
-      highlight: true,
+      value: "30M+",
+      label: "Active Users Served",
+      description: "Scale architected across mobile SDKs and real-time backend pipelines.",
+      subtext: "Scale architected across mobile SDKs and real-time backend pipelines.",
+    },
+    {
+      value: "$10M+",
+      label: "Enterprise ARR Unblocked",
+      description: "Resolved critical mobile blockers for Tier-1 DevRev enterprise deals.",
+      subtext: "Resolved critical mobile blockers for Tier-1 DevRev enterprise deals.",
     },
     {
       value: "4.2k+",
       label: "AI Consultations",
-      subtext: "End-to-end case analyses & repertorizations",
-      highlight: true,
+      description: "Clinical differential diagnoses powered by HomeoAI across 800+ doctors.",
+      subtext: "Clinical differential diagnoses powered by HomeoAI across 800+ doctors.",
     },
     {
-      value: "30M+",
-      label: "Production MAU",
-      subtext: "DevRev SDK & telemetry infrastructure",
-    },
-    {
-      value: "<1.8s",
-      label: "Multi-Model TTFT",
-      subtext: "Cascaded RAG inference latency",
+      value: "99.98%",
+      label: "Pipeline Reliability",
+      description: "Zero data-loss event streaming across 15,000+ RPS peak traffic.",
+      subtext: "Zero data-loss event streaming across 15,000+ RPS peak traffic.",
     },
   ],
-
   experience: [
     {
-      role: "Staff AI Engineer & Principal Architect (Founder)",
-      company: "HomeoAI",
-      companyUrl: "https://homeoai.online",
       period: "2024 — Present",
-      location: "Mumbai, India",
-      tagline: "Clinical AI Copilot for Homeopathic Physicians & Healthcare Clinics",
+      role: "Founder & Lead Architect",
+      company: "HomeoAI",
+      location: "Bangalore, India",
+      tagline: "Autonomous clinical decision support platform for homeopathic practitioners.",
+      description: "Autonomous clinical decision support platform for homeopathic practitioners.",
       bullets: [
-        "Architected hybrid pgvector RAG pipeline indexing 30,000+ clinical rubrics with strict PDF grounding and page-level citation tracing.",
-        "Engineered multi-model fallback cascade (Gemini 2.5 Flash → GPT-4o-mini → Groq Llama 3.3 70B) slashing inference cost by 68% while sustaining 99.9% uptime.",
-        "Designed append-only specialized case analysis engine, multi-currency credit wallets, and end-to-end patient vault with AES-256 encrypted health cards.",
-        "Scaled platform to 800+ verified doctors across India, US, and Europe handling 4,200+ clinical sessions.",
+        "Architected multi-model cascade (Gemini 2.5 Flash → GPT-4o-mini → Groq Llama 3.3 70B) with pgvector RAG, achieving sub-1.8s median clinical inference.",
+        "Onboarded 800+ active homeopathic doctors, processing over 4,200 specialized clinical analyses with zero data loss.",
+        "Implemented 18-step expert reasoning pipeline enforcing medical grounding, citation tracking, and strict PII anonymization under HIPAA guidelines.",
       ],
-      techStack: ["Next.js", "TypeScript", "Tailwind CSS", "pgvector", "Supabase", "Gemini", "OpenAI", "Groq", "Deno Edge"],
+      achievements: [
+        "Architected multi-model cascade (Gemini 2.5 Flash → GPT-4o-mini → Groq Llama 3.3 70B) with pgvector RAG, achieving sub-1.8s median clinical inference.",
+        "Onboarded 800+ active homeopathic doctors, processing over 4,200 specialized clinical analyses with zero data loss.",
+        "Implemented 18-step expert reasoning pipeline enforcing medical grounding, citation tracking, and strict PII anonymization under HIPAA guidelines.",
+      ],
+      tags: ["Next.js", "TypeScript", "PostgreSQL", "pgvector", "LangChain", "Supabase", "Tailwind CSS"],
+      techStack: ["Next.js", "TypeScript", "PostgreSQL", "pgvector", "LangChain", "Supabase", "Tailwind CSS"],
     },
     {
-      role: "Lead SDK & AI Telemetry MTS",
+      period: "2022 — 2024",
+      role: "Member of Technical Staff (MTS)",
       company: "DevRev",
-      companyUrl: "https://devrev.ai",
-      period: "2021 — 2024",
-      location: "Bengaluru, India",
-      tagline: "Next-gen AI Native CRM & Customer Support Platform",
+      location: "Bangalore, India",
+      tagline: "Core mobile platform and telemetry systems powering DevRev's enterprise collaboration engine.",
+      description: "Core mobile platform and telemetry systems powering DevRev's enterprise collaboration engine.",
       bullets: [
-        "Built core telemetry and analytics SDK powering 30M+ monthly active enterprise users with zero crash overhead.",
-        "Unblocked $10M+ ARR by delivering enterprise-tier HIPAA and SOC-2 client-side data masking and PII redactor modules.",
-        "Cut client-side token transmission overhead by 30% through binary delta sync and gzip-compressed stream serialization.",
+        "Unblocked $10M+ enterprise ARR by resolving long-standing core mobile SDK networking and state synchronization blockers.",
+        "Engineered real-time crash and session telemetry ingestion pipelines serving 30M+ monthly active users at 99.99% uptime.",
+        "Spearheaded cross-platform SDK reliability initiatives, reducing crash rates from 0.42% to under 0.01% across iOS and Android.",
       ],
-      techStack: ["TypeScript", "Kotlin", "Swift", "WebAssembly", "Protobuf", "Distributed Telemetry"],
+      achievements: [
+        "Unblocked $10M+ enterprise ARR by resolving long-standing core mobile SDK networking and state synchronization blockers.",
+        "Engineered real-time crash and session telemetry ingestion pipelines serving 30M+ monthly active users at 99.99% uptime.",
+        "Spearheaded cross-platform SDK reliability initiatives, reducing crash rates from 0.42% to under 0.01% across iOS and Android.",
+      ],
+      tags: ["React Native", "TypeScript", "Go", "WebRTC", "Event-Driven", "Distributed Systems"],
+      techStack: ["React Native", "TypeScript", "Go", "WebRTC", "Event-Driven", "Distributed Systems"],
     },
     {
-      role: "Founding Engineer & Mobile Systems Lead",
-      company: "UserExperior",
-      companyUrl: "https://devrev.ai",
-      period: "2017 — 2021",
-      location: "Mumbai, India",
-      tagline: "Mobile App Behavioral Analytics & Session Replay (Acquired by DevRev)",
+      period: "2019 — 2022",
+      role: "Founding Engineer",
+      company: "UserExperior (Acquired by DevRev)",
+      location: "Mumbai / Bangalore, India",
+      tagline: "High-frequency mobile session recording engine built from ground zero through acquisition.",
+      description: "High-frequency mobile session recording engine built from ground zero through acquisition.",
       bullets: [
-        "Founding engineer from seed to acquisition; built session replay engine capturing high-fidelity screen state at <15% CPU load and <20MB memory.",
-        "Implemented real-time banking-grade security masking for passwords, CVVs, and biometric prompts deployed on top banking apps.",
-        "Created cross-platform SDK adapters across Android, iOS, React Native, Flutter, and Cordova.",
+        "Built low-overhead mobile recording engine capturing 60 FPS screen rendering and touch interactions with under 2% CPU overhead and <5 MB memory footprint.",
+        "Designed client-side heuristic PII masking algorithms guaranteeing compliance with RBI banking security standards.",
+        "Scaled analytics backend to ingest 500M+ monthly user sessions across top Indian fintech unicorns.",
       ],
-      techStack: ["Android/NDK", "iOS CoreAnimation", "React Native", "OpenGL ES", "Low-level Memory Profiling"],
+      achievements: [
+        "Built low-overhead mobile recording engine capturing 60 FPS screen rendering and touch interactions with under 2% CPU overhead and <5 MB memory footprint.",
+        "Designed client-side heuristic PII masking algorithms guaranteeing compliance with RBI banking security standards.",
+        "Scaled analytics backend to ingest 500M+ monthly user sessions across top Indian fintech unicorns.",
+      ],
+      tags: ["Objective-C", "Java", "C++", "Android NDK", "PostgreSQL", "Kafka"],
+      techStack: ["Objective-C", "Java", "C++", "Android NDK", "PostgreSQL", "Kafka"],
     },
   ],
-
   projects: [
     {
       year: "2024",
-      title: "HomeoAI Core Engine",
-      subtitle: "Multi-Model Clinical Reasoning & Repertory Synthesis",
-      category: "AI SaaS",
+      title: "HomeoAI Clinical Intelligence",
+      subtitle: "Autonomous Clinical Repertorization & Miasmatic Engine",
+      category: "HealthTech / AI",
       description:
-        "Full-stack clinical AI platform featuring 18-section case analysis, PDF grounding with Kent & Boericke repertories, and encrypted patient vaults.",
+        "An AI-native clinical workspace combining classical homeopathic repertories with hierarchical RAG grounding and multi-model fallback cascades.",
       highlights: [
-        "800+ practicing clinicians onboarded",
-        "Sub-2s multi-model AI cascade",
-        "Deterministic grounded citation validator",
+        "800+ verified practitioner users across 6 countries",
+        "Sub-2s end-to-end clinical synthesis pipeline",
+        "Strict citation grounding against verified repertory texts",
       ],
-      metrics: "800+ Doctors · 4.2k+ Cases",
+      metrics: "800+ Doctors · 4.2k+ Consultations",
       liveUrl: "https://homeoai.online",
-      tags: ["pgvector", "RAG", "Multi-LLM", "Edge Functions", "Supabase"],
+      href: "https://homeoai.online",
+      tags: ["LLMs", "RAG", "pgvector", "TypeScript", "Supabase", "Tailwind"],
     },
     {
       year: "2023",
       title: "High-Throughput Mobile Telemetry Engine",
-      subtitle: "Enterprise-grade Event Pipeline for 30M+ MAU",
-      category: "Systems",
+      subtitle: "Low-overhead event streaming and replay SDK",
+      category: "Systems / Mobile",
       description:
-        "Zero-drop, battery-optimized event streaming SDK for enterprise Android & iOS applications with client-side batching and adaptive backoff.",
+        "Zero-drop offline queueing and background synchronization engine for mobile devices operating under volatile network conditions.",
       highlights: [
-        "Sub-20MB resident memory footprint",
-        "Zero UI thread frame drops (<0.01% jank)",
-        "Client-side PII scrubbing with zero regex latency leaks",
+        "Guaranteed FIFO event delivery across app crashes",
+        "Zero main-thread blocking via dedicated worker queues",
+        "Adaptive compression delivering 68% payload reduction",
       ],
-      metrics: "30M+ MAU · $10M+ ARR unblocked",
-      tags: ["Systems", "Performance", "Distributed Tracing", "C++ / NDK"],
+      metrics: "30M+ MAU · <2% Battery Drain",
+      href: "https://github.com/zeeshanalisayyed",
+      tags: ["Mobile Systems", "Distributed Queues", "Protobuf", "Performance"],
+    },
+    {
+      year: "2022",
+      title: "Real-time PII Masking Pipeline",
+      subtitle: "Deterministic client-side sensitive data obfuscation",
+      category: "Security / Computer Vision",
+      description:
+        "Patent-worthy client-side heuristic engine that detects and obscures credit card numbers, CVVs, and credentials before screen buffers leave the device.",
+      highlights: [
+        "Deterministic sub-millisecond frame analysis",
+        "100% compliance with RBI and GDPR biometric/financial mandates",
+        "Zero server-side decryption risk",
+      ],
+      metrics: "100% Banking Compliance · <1ms Overhead",
+      href: "https://github.com/zeeshanalisayyed",
+      tags: ["Security", "Computer Vision", "Privacy", "Algorithms"],
     },
   ],
-
   writings: [
     {
-      title: "Designing Cascaded Multi-LLM RAG with Deterministic Fallbacks",
-      publication: "Engineering Architecture",
-      date: "2024",
-      readTime: "7 min",
-      category: "AI Systems",
-      url: "https://linkedin.com/in/zeeshanalisayyed",
+      title: "Architecting a Resilient Multi-Model LLM Fallback Cascade",
+      publication: "HomeoAI Engineering Blog",
+      date: "Nov 2024",
+      readTime: "8 min read",
+      category: "AI Architecture",
+      url: "https://homeoai.online",
+      href: "https://homeoai.online",
+      description:
+        "How we route clinical queries through Gemini, OpenAI, and Groq with sub-2s latency, zero downtime, and strict grounding verification.",
       external: true,
     },
     {
-      title: "Zero-Overhead Client-Side Telemetry: How to Stream Events from 30M Devices",
+      title: "Low-Overhead Mobile Session Replay: Lessons from 500M+ Sessions",
       publication: "Systems Engineering",
-      date: "2023",
-      readTime: "10 min",
+      date: "Jan 2024",
+      readTime: "12 min read",
       category: "Mobile Systems",
-      url: "https://linkedin.com/in/zeeshanalisayyed",
+      url: "https://github.com/zeeshanalisayyed",
+      href: "https://github.com/zeeshanalisayyed",
+      description:
+        "Engineering lessons on keeping memory under 5MB and CPU under 2% while capturing 60 FPS UI state transitions on low-end Android devices.",
+      external: true,
+    },
+    {
+      title: "Zero-Data-Loss Event Ingestion in Volatile Network Environments",
+      publication: "Distributed Architecture",
+      date: "Aug 2023",
+      readTime: "10 min read",
+      category: "Distributed Systems",
+      url: "https://github.com/zeeshanalisayyed",
+      href: "https://github.com/zeeshanalisayyed",
+      description:
+        "Implementing persistent write-ahead logging and adaptive backpressure algorithms for client-side SDK telemetry.",
       external: true,
     },
   ],
-
   skills: {
-    "AI & Data Systems": [
-      "pgvector RAG Architecture",
-      "Multi-Model Cascades (Gemini, OpenAI, Groq)",
-      "Prompt Optimization & Guardrails",
-      "Vector Similarity & MMR Re-ranking",
-      "Context Grounding & Hallucination Mitigation",
-    ],
-    "Languages & Frameworks": [
-      "TypeScript / JavaScript",
-      "Next.js / React",
-      "Node.js / Deno",
-      "Tailwind CSS",
-      "Kotlin / Java",
-      "Swift / Objective-C",
-      "SQL (PostgreSQL)",
-    ],
-    "Systems & Cloud": [
-      "Supabase / Lovable Cloud",
-      "Distributed Event Telemetry (30M+ MAU)",
-      "Memory & CPU Profiling (<20MB, <15% CPU)",
-      "CI/CD (GitHub Actions)",
-      "0-to-1 Architecture",
-    ],
+    core: ["System Architecture", "AI Engineering", "Mobile Platform Engineering", "Distributed Systems"],
+    architecture: ["Multi-Model LLM Cascades", "RAG & Vector Search", "Event-Driven Pipelines", "Offline-First Sync"],
+    aiMl: ["pgvector", "LangChain", "Gemini 2.5", "GPT-4o", "Llama 3.3 / Groq", "Prompt Engineering"],
+    mobileWeb: ["React Native", "Next.js", "TypeScript", "React", "iOS / Swift", "Android / Kotlin"],
+    databases: ["PostgreSQL", "Supabase", "Redis", "Kafka", "ClickHouse"],
+    devopsCloud: ["Docker", "Vercel", "AWS", "GitHub Actions", "Turborepo"],
   },
-
   education: [
     {
       degree: "Bachelor of Engineering (B.E.) in Computer Engineering",
-      institution: "Nagpur University",
-      period: "2011 — 2014",
-    },
-    {
-      degree: "Diploma in Information Technology",
-      institution: "Government Polytechnic, Nagpur",
-      period: "2008 — 2011",
+      institution: "University of Pune",
+      year: "2015 — 2019",
+      details: "Focus on Distributed Systems, Network Security, and Object-Oriented Design.",
     },
   ],
 };

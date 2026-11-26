@@ -5,7 +5,7 @@
 .yarn/install-state.gz
 
 # Next.js Build Outputs
-/.next/
+/.next/ 
 /out/
 
 # Production & Packaging

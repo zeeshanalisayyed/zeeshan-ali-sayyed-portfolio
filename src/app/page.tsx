@@ -310,7 +310,7 @@ export default function PortfolioPage() {
               </p>
             </div>
             <a
-              href={`mailto:${PORTFOLIO_DATA.email}`}
+              href={`mailto:${portfolioData.email}`}
               className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-neutral-100 hover:bg-white text-neutral-950 text-xs font-medium rounded-lg transition-colors shrink-0"
             >
               <Mail className="w-3.5 h-3.5" />

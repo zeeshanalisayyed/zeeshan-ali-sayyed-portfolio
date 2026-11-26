@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Command } from "cmdk";
 import { Search, ExternalLink, Mail, Copy, Check, FileText } from "lucide-react";
-import { PORTFOLIO_DATA } from "../data/portfolio";
+import { portfolioData } from "../data/portfolio";
 
 export function CommandMenu() {
   const [open, setOpen] = React.useState(false);
@@ -21,7 +21,7 @@ export function CommandMenu() {
   }, []);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText(PORTFOLIO_DATA.email);
+    navigator.clipboard.writeText(portfolioData.email);
     setCopied(true);
     setTimeout(() => {
       setCopied(false);
@@ -69,7 +69,7 @@ export function CommandMenu() {
                 <Command.Group heading="Navigation" className="text-neutral-500 px-2 py-1 uppercase text-[10px] font-mono">
                   <Command.Item
                     onSelect={() => {
-                      window.open(PORTFOLIO_DATA.projects[0].liveUrl, "_blank");
+                      window.open(portfolioData.projects[0].liveUrl, "_blank");
                       setOpen(false);
                     }}
                     className="flex items-center justify-between px-3 py-2 rounded-md text-neutral-300 hover:bg-neutral-800 hover:text-white cursor-pointer"
@@ -108,11 +108,11 @@ export function CommandMenu() {
                       <Mail className="w-3.5 h-3.5" />
                       <span>{copied ? "Copied email to clipboard!" : "Copy Email"}</span>
                     </span>
-                    <span className="font-mono text-[10px] text-neutral-500">{PORTFOLIO_DATA.email}</span>
+                    <span className="font-mono text-[10px] text-neutral-500">{portfolioData.email}</span>
                   </Command.Item>
                   <Command.Item
                     onSelect={() => {
-                      window.open(PORTFOLIO_DATA.socials.resume, "_blank");
+                      window.open(portfolioData.socials.resume, "_blank");
                       setOpen(false);
                     }}
                     className="flex items-center justify-between px-3 py-2 rounded-md text-neutral-300 hover:bg-neutral-800 hover:text-white cursor-pointer"
@@ -128,7 +128,7 @@ export function CommandMenu() {
                 <Command.Group heading="Links" className="text-neutral-500 px-2 py-1 uppercase text-[10px] font-mono pt-2">
                   <Command.Item
                     onSelect={() => {
-                      window.open(PORTFOLIO_DATA.socials.github, "_blank");
+                      window.open(portfolioData.socials.github, "_blank");
                       setOpen(false);
                     }}
                     className="flex items-center justify-between px-3 py-2 rounded-md text-neutral-300 hover:bg-neutral-800 hover:text-white cursor-pointer"
@@ -138,7 +138,7 @@ export function CommandMenu() {
                   </Command.Item>
                   <Command.Item
                     onSelect={() => {
-                      window.open(PORTFOLIO_DATA.socials.linkedin, "_blank");
+                      window.open(portfolioData.socials.linkedin, "_blank");
                       setOpen(false);
                     }}
                     className="flex items-center justify-between px-3 py-2 rounded-md text-neutral-300 hover:bg-neutral-800 hover:text-white cursor-pointer"

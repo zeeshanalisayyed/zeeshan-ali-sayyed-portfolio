@@ -25,7 +25,8 @@ export default function Home() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [activePlatformFilter, setActivePlatformFilter] = useState<string>("All");
   const [activeWritingCategory, setActiveWritingCategory] = useState<string>("All");
-
+  const [cmdOpen, setCmdOpen] = useState(false);
+  
   const copyEmail = () => {
     navigator.clipboard.writeText(portfolioData.personal.email);
     setCopiedEmail(true);
@@ -89,7 +90,7 @@ export default function Home() {
       />
 
       {/* Command Menu Palette */}
-      <CommandMenu />
+      <CommandMenu open={cmdOpen} setOpen={setCmdOpen} />
 
       {/* Top Navigation */}
       <nav className="sticky top-0 z-40 backdrop-blur-md bg-neutral-950/80 border-b border-neutral-900 px-4 sm:px-6 py-3">
@@ -179,25 +180,29 @@ export default function Home() {
                 )}
               </button>
 
-              <a
-                href={portfolioData.personal.socials.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2.5 text-neutral-400 hover:text-white bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 rounded-md transition-colors shrink-0"
-                aria-label="GitHub"
-              >
-                <Github className="w-4 h-4" />
-              </a>
+              {portfolioData.links?.github && (
+                <a
+                  href={portfolioData.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-mono text-zinc-400 hover:text-white bg-zinc-900 border border-zinc-800 rounded-lg hover:border-zinc-700 transition"
+                >
+                  <Github className="w-3.5 h-3.5" />
+                  <span>GitHub</span>
+                </a>
+              )}
 
-              <a
-                href={portfolioData.personal.socials.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2.5 text-neutral-400 hover:text-white bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 rounded-md transition-colors shrink-0"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
+              {portfolioData.links?.linkedin && (
+                <a
+                  href={portfolioData.links.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-mono text-zinc-400 hover:text-white bg-zinc-900 border border-zinc-800 rounded-lg hover:border-zinc-700 transition"
+                >
+                  <Linkedin className="w-3.5 h-3.5" />
+                  <span>LinkedIn</span>
+                </a>
+              )}
             </div>
           </div>
 

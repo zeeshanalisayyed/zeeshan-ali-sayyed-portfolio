@@ -15,13 +15,15 @@ import {
 } from "lucide-react";
 import { portfolioData } from "../data/portfolio";
 
-export function CommandMenu({
-  open,
-  setOpen,
-}: {
-  open: boolean;
-  setOpen: (open: boolean) => void;
-}) {
+interface CommandMenuProps {
+  open?: boolean;
+  setOpen?: (open: boolean) => void;
+}
+
+export function CommandMenu({ open: externalOpen, setOpen: externalSetOpen }: CommandMenuProps) {
+  const [internalOpen, setInternalOpen] = useState(false);
+  const open = externalOpen !== undefined ? externalOpen : internalOpen;
+  const setOpen = externalSetOpen || setInternalOpen;
   const [copied, setCopied] = React.useState(false);
 
   React.useEffect(() => {
